@@ -40,7 +40,7 @@
 
       <div class="form-group">
         <label for="imageUrl">Image URL</label>
-        <input #imageUrl="ngModel" [(ngModel)]="product.image" name="image" id="imageUrl" type="text" class="form-control" required url>
+        <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="image" id="imageUrl" type="text" class="form-control" required url>
       </div>
       <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
         <div *ngIf="imageUrl.errors.required">Image URL is required.</div>
@@ -57,8 +57,8 @@
   <!-- Preview Card -->
   <div class="col-md-6">
 
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" [src]="product?.image" *ngIf="product.image">
+    <div class="card" style="width: 18rem;" *ngIf="product.title">
+      <img class="card-img-top" [src]="product?.imageUrl" *ngIf="product.imageUrl">
       <div class="card-body">
         <h5 class="card-title">{{ product?.title || 'title' }}</h5>
         <p class="card-text">{{ product?.price | currency:'USD':true }}</p>
